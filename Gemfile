@@ -41,4 +41,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: :development, group: :test
+group: :development do
+  gem 'sqlite3'
+end
+group: :test do
+  gem 'sqlite3'
+end
