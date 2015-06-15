@@ -1,0 +1,10 @@
+<div class="row row-centered">
+  <div class="col-md-3 col-md-offset-4">
+    <%= simple_form_for(@url) do |f| %>
+      <%= f.input :url, label:"url" %>
+      <div class="form-actions">
+        <%= f.button :submit, label:"Encurtar!" %>
+      </div>
+    <% end %>
+  </div>
+</div>
