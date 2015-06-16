@@ -43,3 +43,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 #postgresql
 gem 'pg'
+
+#heroku
+gem 'rails_12factor'
