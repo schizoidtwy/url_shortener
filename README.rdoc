@@ -1,6 +1,6 @@
 == README
 
-Aplicativo de exemplo que encurta urls as convertendo em base32 e guardando suas referências para redirecionar o usuáro
+Aplicativo de exemplo que encurta urls as convertendo em base32 e guardando suas referências para redirecionar o usuário
 posteriormente
 
 ruby 2.0.0p598
@@ -8,3 +8,4 @@ ruby 2.0.0p598
 instalação:
 bundle install, rake db:setup e rake db:migrate
 
+Banco: postgresql
