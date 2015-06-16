@@ -6,7 +6,7 @@ development:
   username: postgres
   password: password
 
-test: &TEST
+test: 
   adapter: postgresql
   encoding: utf8
   database: project_test
