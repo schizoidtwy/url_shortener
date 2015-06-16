@@ -1,7 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: project_development
+  pool: 5
+  username: postgres
+  password: password
+
+test: &TEST
+  adapter: postgresql
+  encoding: utf8
+  database: project_test
+  pool: 5
+  username: postgres
+  password: password
+
 production:
   adapter: postgresql
   encoding: utf8
-  database: dfkf74m1qa48ne
+  database: project_production
   pool: 5
-  username: ynhndhjydttxze
-  password: _ESIbqi6o93hZb60PZ1xiwMrsr
+  username: postgres
+  password: password
+
+cucumber:
+  <<: *TEST
