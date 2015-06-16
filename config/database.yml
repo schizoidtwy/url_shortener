@@ -5,6 +5,3 @@ production:
   pool: 5
   username: ynhndhjydttxze
   password: _ESIbqi6o93hZb60PZ1xiwMrsr
-
-cucumber:
-  <<: *TEST
