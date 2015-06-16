@@ -11,7 +11,7 @@ Rails.application.configure do
   config.eager_load = true
   config.cache_classes = true
   config.serve_static_assets = true
-  config.assets.compile = true
+  config.assets.compile = false
   config.assets.digest = true
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
