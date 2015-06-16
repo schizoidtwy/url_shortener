@@ -17,10 +17,10 @@ test: &TEST
 production:
   adapter: postgresql
   encoding: utf8
-  database: project_production
+  database: dfkf74m1qa48ne
   pool: 5
-  username: postgres
-  password: password
+  username: ynhndhjydttxze
+  password: _ESIbqi6o93hZb60PZ1xiwMrsr
 
 cucumber:
   <<: *TEST
