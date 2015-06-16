@@ -5,9 +5,9 @@ class UrlsController < ApplicationController
   end
   def create
     @url = Url.new(params.require(:url).permit(:url))
-    lastId = (Url.last.id + 1).to_s
+    lastId = Url.last.id**5
 
-    lastId = Base32::Crockford.encode("27")
+    lastId = Base32::Crockford.encode(lastId)
     @url.short_url = lastId
     respond_to do |format|
       if @url.save
@@ -18,6 +18,10 @@ class UrlsController < ApplicationController
     end
   end
   def show
-    @url = Url.last.short_url
+    @url = "#{request.domain}:#{request.port}/#{Url.last.short_url}"
+  end
+  def redirect
+    @url = Url.where(short_url: params.require(:short_url)).first.url
+    redirect_to @url, :status => :moved_permanently
   end
 end

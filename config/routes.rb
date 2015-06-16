@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :urls, :only => [:show, :new, :create]
+  get '/:short_url', to: 'urls#redirect'
   root 'urls#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
