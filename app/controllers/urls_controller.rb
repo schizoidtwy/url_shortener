@@ -3,7 +3,10 @@ class UrlsController < ApplicationController
 
   def new
     @url = Url.new
-    @posts_usuario = current_user.urls.all.order(created_at: :desc)
+    if user_signed_in?
+      @posts_usuario = current_user.urls.where
+      .not(short_url: nil).order(created_at: :desc)
+    end
   end
 
   def create
@@ -30,7 +33,6 @@ class UrlsController < ApplicationController
 
   def show
     @url = Url.where(id:params.require(:id)).first.short_url
-    @url =  "#{request.domain}:#{request.port}/#{@url}"
   end
 
   def redirect

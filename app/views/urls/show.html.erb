@@ -1,5 +1,5 @@
 <div class="text-center">
   <h1> Url criada com sucesso! </h1>
-  <h3><%= link_to @url, @url, target: :_blank %></h3>
+  <h3><%= link_to "#{root_url}#{@url}", "#{root_url}#{@url}", target: :_blank %></h3>
   <p><%= link_to "voltar", root_path  %>  </p>
 </div>

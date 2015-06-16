@@ -1,5 +1,5 @@
 <%= render 'form' %>
-<% if user_signed_in? %>
+<% if user_signed_in? && !@posts_usuario.nil? %>
   <% @posts_usuario.each do |t| %>
     <div class="text-center"><%= link_to  "#{root_url}#{t.short_url}",
      t.short_url %></div>
