@@ -8,4 +8,4 @@ ruby 2.0.0p598
 instalação:
 bundle install, rake db:setup e rake db:migrate
 
-Banco: postgresql
+Banco: postgresql configurar o arquivo database.example.yml com as configurações locais
