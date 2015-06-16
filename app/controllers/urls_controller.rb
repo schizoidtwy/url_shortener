@@ -1,14 +1,24 @@
 class UrlsController < ApplicationController
   require 'base32/crockford'
+
   def new
     @url = Url.new
+    @posts_usuario = current_user.urls.all.order(created_at: :desc)
   end
+
   def create
     @url = Url.new(params.require(:url).permit(:url))
-    lastId = Url.last.id**5
+    @url.user = current_user
+
+    if !Url.last.nil?
+      lastId = (Url.last.id + 1)**5
+    else
+      lastId = 0
+    end
 
     lastId = Base32::Crockford.encode(lastId)
     @url.short_url = lastId
+
     respond_to do |format|
       if @url.save
           format.html {redirect_to @url, notice: 'Criado com sucesso'}
@@ -17,9 +27,12 @@ class UrlsController < ApplicationController
       end
     end
   end
+
   def show
-    @url = "#{request.domain}:#{request.port}/#{Url.last.short_url}"
+    @url = Url.where(id:params.require(:id)).first.short_url
+    @url =  "#{request.domain}:#{request.port}/#{@url}"
   end
+
   def redirect
     @url = Url.where(short_url: params.require(:short_url)).first.url
     redirect_to @url, :status => :moved_permanently
